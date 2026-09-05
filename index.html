@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiverse Gamer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap">
+<style>
+  :root{
+    --ground:#0b0d16;
+    --ground-2:#0e1120;
+    --surface:#151a29;
+    --surface-2:#1b2133;
+    --line:#262c40;
+    --line-soft:#1e2437;
+    --violet:#7c5cff;
+    --violet-2:#9a80ff;
+    --violet-deep:#5b3ee0;
+    --teal:#00d4a0;
+    --gold:#f5b301;
+    --text:#eaecf7;
+    --muted:#9aa0b8;
+    --muted-2:#6f758f;
+    --radius:16px;
+    --maxw:1160px;
+    --shadow:0 24px 60px -24px rgba(0,0,0,.7);
+    --shadow-violet:0 20px 60px -18px rgba(124,92,255,.55);
+    font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.1;text-wrap:balance;margin:0}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-family:'Chakra Petch',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;
+    color:var(--violet-2);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:.98rem;
+    padding:.85em 1.5em;border-radius:12px;cursor:pointer;border:1px solid transparent;
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--violet) 0%,var(--violet-deep) 100%);
+    color:#fff;box-shadow:var(--shadow-violet);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 26px 66px -16px rgba(124,92,255,.7)}
+  .btn-ghost{background:rgba(255,255,255,.03);border-color:var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--violet);background:rgba(124,92,255,.08)}
+  :focus-visible{outline:2px solid var(--violet-2);outline-offset:3px;border-radius:6px}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,13,22,.72);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{display:flex;align-items:center;gap:20px;height:66px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Sora',sans-serif;font-weight:700;font-size:1.06rem}
+  .brand .mark{
+    width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+    background:linear-gradient(140deg,var(--violet) 0%,var(--violet-deep) 100%);
+    box-shadow:0 6px 18px -6px rgba(124,92,255,.8);color:#fff;
+  }
+  .brand .mark svg{width:15px;height:15px;display:block}
+  .nav-links{display:flex;gap:26px;margin-left:14px}
+  .nav-links a{color:var(--muted);font-size:.92rem;font-weight:500;transition:color .15s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{margin-left:auto;display:flex;align-items:center;gap:14px}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:78px 0 40px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(680px 380px at 78% 8%, rgba(124,92,255,.22), transparent 60%),
+      radial-gradient(560px 360px at 6% 30%, rgba(0,212,160,.10), transparent 55%);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+    background-size:46px 46px;
+    mask-image:radial-gradient(680px 460px at 72% 20%,#000,transparent 75%);
+    -webkit-mask-image:radial-gradient(680px 460px at 72% 20%,#000,transparent 75%);
+  }
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.02fr 1fr;gap:52px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,4.6vw,3.85rem);font-weight:800;letter-spacing:-.02em;margin:18px 0 0}
+  .hero h1 .hl{color:var(--violet-2)}
+  .hero-sub{color:var(--muted);font-size:1.12rem;margin-top:20px;max-width:37ch}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .hero-note{display:flex;align-items:center;gap:9px;margin-top:20px;color:var(--muted-2);font-size:.9rem}
+  .hero-note .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+  .trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:34px;padding-top:22px;border-top:1px solid var(--line-soft)}
+  .trust div{font-family:'Chakra Petch',sans-serif;font-size:.8rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+  .trust b{color:var(--text);font-weight:700}
+
+  /* ---------- APP WINDOW MOCKUP ---------- */
+  .app-window{
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    background:var(--ground-2);box-shadow:var(--shadow);
+  }
+  .hero .app-window{transform:perspective(1600px) rotateY(-9deg) rotateX(3deg);transform-origin:left center}
+  .app-titlebar{
+    display:flex;align-items:center;gap:8px;padding:11px 14px;
+    background:linear-gradient(180deg,#161b2b,#11162340);border-bottom:1px solid var(--line);
+    font-size:.82rem;color:var(--muted)
+  }
+  .app-titlebar .tdots{display:flex;gap:6px;margin-right:6px}
+  .app-titlebar .tdots i{width:11px;height:11px;border-radius:50%;display:block}
+  .app-titlebar .tdots i:nth-child(1){background:#ff5f57}
+  .app-titlebar .tdots i:nth-child(2){background:#febc2e}
+  .app-titlebar .tdots i:nth-child(3){background:#28c840}
+  .app-titlebar .tb-title{font-family:'Sora',sans-serif;font-weight:600;color:var(--text)}
+  .app-body{display:grid;grid-template-columns:132px 1fr;min-height:340px}
+  .app-tabs{border-right:1px solid var(--line-soft);padding:12px 8px;display:flex;flex-direction:column;gap:3px;background:#0d1120}
+  .app-tabs .t{
+    font-size:.8rem;color:var(--muted);padding:8px 10px;border-radius:8px;display:flex;align-items:center;gap:8px;font-weight:500
+  }
+  .app-tabs .t.on{background:rgba(124,92,255,.16);color:#fff}
+  .app-tabs .t .ic{width:15px;text-align:center;opacity:.9}
+  .app-content{padding:14px 16px}
+  .app-tb{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .app-tb h4{font-family:'Sora',sans-serif;font-size:.95rem;margin:0;font-weight:600}
+  .app-tb .search{margin-left:auto;background:#0d1120;border:1px solid var(--line-soft);border-radius:8px;padding:5px 10px;font-size:.72rem;color:var(--muted-2)}
+  .app-tb .add{background:rgba(124,92,255,.18);color:var(--violet-2);border-radius:8px;padding:5px 10px;font-size:.72rem;font-weight:600}
+  .covers{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+  .cover{border-radius:10px;overflow:hidden;border:1px solid var(--line-soft);background:var(--surface)}
+  .cover .art{height:74px;display:grid;place-items:center;padding:6px;text-align:center}
+  .cover .art span{font-family:'Sora',sans-serif;font-weight:700;font-size:.68rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5);line-height:1.15}
+  .cover .meta{padding:6px 8px;font-size:.62rem;color:var(--muted-2);display:flex;justify-content:space-between;align-items:center}
+  .cover .meta .plat{font-family:'Chakra Petch',sans-serif;letter-spacing:.04em}
+  .cover .meta .play{color:var(--teal)}
+
+  /* ---------- SECTIONS ---------- */
+  section{position:relative}
+  .sec{padding:84px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head h2{font-size:clamp(1.8rem,3.3vw,2.6rem);font-weight:700;letter-spacing:-.02em;margin-top:12px}
+  .sec-head p{color:var(--muted);font-size:1.06rem;margin-top:14px}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
+  .step{
+    background:linear-gradient(180deg,var(--surface),var(--ground-2));
+    border:1px solid var(--line-soft);border-radius:var(--radius);padding:26px 24px;position:relative
+  }
+  .step .num{
+    font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:.85rem;color:var(--violet-2);
+    display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;
+    background:rgba(124,92,255,.12);border:1px solid rgba(124,92,255,.3);margin-bottom:16px
+  }
+  .step h3{font-size:1.16rem;font-weight:600;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:.96rem}
+
+  /* features */
+  .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .feat{
+    background:var(--surface);border:1px solid var(--line-soft);border-radius:14px;padding:22px 20px;
+    transition:transform .18s ease,border-color .18s ease,background .18s ease
+  }
+  .feat:hover{transform:translateY(-3px);border-color:rgba(124,92,255,.45);background:var(--surface-2)}
+  .feat .ficon{
+    width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:1.15rem;margin-bottom:14px;
+    background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.22)
+  }
+  .feat h3{font-size:1.03rem;font-weight:600;margin-bottom:6px;font-family:'Sora',sans-serif}
+  .feat p{color:var(--muted);font-size:.9rem}
+  .feat.span2{grid-column:span 2;background:linear-gradient(135deg,rgba(124,92,255,.14),var(--surface));border-color:rgba(124,92,255,.3)}
+
+  /* consoles band */
+  .consoles{padding:56px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:var(--ground-2)}
+  .consoles .lbl{text-align:center;margin-bottom:26px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:900px;margin:0 auto}
+  .chip{
+    font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.02em;
+    padding:8px 15px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--surface);
+    transition:color .15s,border-color .15s
+  }
+  .chip:hover{color:var(--text);border-color:var(--violet)}
+  .chip.big{color:var(--text);border-color:rgba(124,92,255,.4)}
+
+  /* showcase (reseñas mockup) */
+  .showcase{display:grid;grid-template-columns:1fr 1.05fr;gap:52px;align-items:center}
+  .showcase .txt h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-top:12px}
+  .showcase .txt p{color:var(--muted);font-size:1.05rem;margin-top:14px}
+  .showcase ul{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-direction:column;gap:12px}
+  .showcase li{display:flex;gap:11px;align-items:flex-start;color:var(--text);font-size:.98rem}
+  .showcase li .ck{color:var(--teal);flex:none;margin-top:2px}
+
+  .panel{border:1px solid var(--line);border-radius:14px;background:var(--ground-2);box-shadow:var(--shadow);overflow:hidden}
+  .panel .p-head{padding:16px 18px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;gap:9px}
+  .panel .p-head h4{font-family:'Sora',sans-serif;font-size:1rem;margin:0;font-weight:600}
+  .panel .p-body{padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+  .stars{color:var(--gold);letter-spacing:2px;font-size:1.05rem}
+  .stars .off{color:#3a3f57}
+  .mine{background:linear-gradient(135deg,rgba(124,92,255,.12),var(--surface));border:1px solid rgba(124,92,255,.28);border-radius:12px;padding:14px}
+  .mine .row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .mine .picker{font-size:1.3rem;color:var(--gold);letter-spacing:3px}
+  .mine .save{margin-left:auto;background:var(--violet);color:#fff;font-family:'Sora',sans-serif;font-weight:600;font-size:.78rem;padding:6px 13px;border-radius:8px}
+  .mine .ta{background:#0c0f1c;border:1px solid var(--line-soft);border-radius:8px;padding:9px 11px;color:var(--muted);font-size:.82rem}
+  .rev{display:flex;gap:11px;padding:12px;border:1px solid var(--line-soft);border-radius:12px;background:var(--surface)}
+  .rev .av{width:38px;height:38px;border-radius:10px;flex:none;display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:.9rem}
+  .rev .rc{min-width:0}
+  .rev .rc .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .rev .rc .nm{font-weight:600;font-size:.9rem}
+  .rev .rc .cty{font-size:.72rem;color:var(--muted-2)}
+  .rev .rc .tx{color:var(--muted);font-size:.86rem;margin-top:3px}
+
+  /* pricing */
+  .pricing{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+  .price-card{
+    background:linear-gradient(160deg,var(--surface-2),var(--ground-2));
+    border:1px solid rgba(124,92,255,.35);border-radius:22px;padding:34px 32px;position:relative;overflow:hidden;
+    box-shadow:var(--shadow)
+  }
+  .price-card::before{content:"";position:absolute;top:-40%;right:-20%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,255,.28),transparent 65%)}
+  .price-card .pc-in{position:relative;z-index:1}
+  .price-badge{
+    display:inline-flex;align-items:center;gap:7px;font-family:'Chakra Petch',sans-serif;font-weight:600;
+    font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);
+    background:rgba(0,212,160,.1);border:1px solid rgba(0,212,160,.3);padding:5px 12px;border-radius:999px
+  }
+  .price-amt{display:flex;align-items:baseline;gap:8px;margin:20px 0 4px}
+  .price-amt .cur{font-family:'Sora',sans-serif;font-weight:600;font-size:1.3rem;color:var(--muted)}
+  .price-amt .val{font-family:'Sora',sans-serif;font-weight:800;font-size:3.2rem;letter-spacing:-.02em}
+  .price-amt .per{color:var(--muted);font-size:1rem}
+  .price-year{color:var(--muted);font-size:.98rem;margin:2px 0 6px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .price-year b{color:var(--text);font-weight:700}
+  .save-pill{font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);background:rgba(0,212,160,.1);border:1px solid rgba(0,212,160,.3);padding:2px 8px;border-radius:999px}
+  .price-sub{color:var(--muted);font-size:.96rem;margin:14px 0 22px}
+  .price-list{list-style:none;padding:0;margin:0 0 26px;display:flex;flex-direction:column;gap:11px}
+  .price-list li{display:flex;gap:10px;align-items:flex-start;font-size:.95rem}
+  .price-list .ck{color:var(--violet-2);flex:none}
+  .price-card .btn{width:100%;justify-content:center}
+  .price-secure{text-align:center;margin-top:12px;color:var(--muted-2);font-size:.8rem}
+  .price-aside h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em}
+  .price-aside p{color:var(--muted);font-size:1.05rem;margin-top:14px}
+  .price-aside .mini{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+  .price-aside .mini div{display:flex;gap:10px;align-items:center;color:var(--text);font-size:.95rem}
+  .price-aside .mini .ic{color:var(--violet-2)}
+
+  /* final cta */
+  .final{padding:96px 0;text-align:center;position:relative;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0,rgba(124,92,255,.2),transparent 65%)}
+  .final .in{position:relative;z-index:1;max-width:640px;margin:0 auto}
+  .final h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em}
+  .final p{color:var(--muted);font-size:1.12rem;margin:16px 0 30px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line-soft);padding:44px 0 40px;background:var(--ground-2)}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;align-items:start}
+  .foot .legal{color:var(--muted-2);font-size:.82rem;max-width:44ch;margin-top:14px;line-height:1.55}
+  .foot h5{font-family:'Chakra Petch',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--muted);margin:0 0 12px}
+  .foot a{display:block;color:var(--muted);font-size:.9rem;margin-bottom:8px;transition:color .15s}
+  .foot a:hover{color:var(--text)}
+  .foot-bottom{border-top:1px solid var(--line-soft);margin-top:34px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted-2);font-size:.82rem}
+
+  .tag-example{font-family:'Chakra Petch',sans-serif;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .hero .app-window{transform:none}
+  }
+
+  @media (max-width:940px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero .app-window{transform:none}
+    .showcase,.pricing{grid-template-columns:1fr;gap:34px}
+    .steps{grid-template-columns:1fr}
+    .feat-grid{grid-template-columns:repeat(2,1fr)}
+    .feat.span2{grid-column:span 2}
+    .nav-links{display:none}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .feat-grid{grid-template-columns:1fr}
+    .feat.span2{grid-column:span 1}
+    .covers{grid-template-columns:repeat(3,1fr)}
+    .trust{gap:14px}
+    .foot{grid-template-columns:1fr}
+    .price-amt .val{font-size:2.5rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 4.5v15l13-7.5-13-7.5Z" fill="currentColor"/></svg>
+      </span>
+      Multiverse Gamer
+    </a>
+    <nav class="nav-links">
+      <a href="#como">Cómo funciona</a>
+      <a href="#consolas">Consolas</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="#precio">Precio</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest">Descargar gratis</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Launcher + emulación · para Windows</span>
+      <h1>Toda tu vida gamer retro, en <span class="hl">una sola app</span>.</h1>
+      <p class="hero-sub">Organizá tus juegos de todas las consolas y jugalos con un clic. Multiverse Gamer detecta tus emuladores, arma tu biblioteca y abre cada juego donde corresponde — sin configurar nada.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest">▶ Probar gratis 7 días</a>
+        <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
+      </div>
+      <div class="hero-note"><span class="dot"></span> 7 días de prueba gratis · cancelás cuando quieras</div>
+      <div class="trust">
+        <div><b>+15</b> consolas</div>
+        <div><b>1 clic</b> para jugar</div>
+        <div><b>Nube</b> · cuenta y logros</div>
+      </div>
+    </div>
+
+    <!-- MOCKUP: Biblioteca -->
+    <div class="app-window" role="img" aria-label="Pantalla de la biblioteca de Multiverse Gamer con juegos de varias consolas">
+      <div class="app-titlebar">
+        <span class="tdots"><i></i><i></i><i></i></span>
+        <span class="tb-title">Multiverse Gamer</span>
+      </div>
+      <div class="app-body">
+        <div class="app-tabs">
+          <div class="t on"><span class="ic">▦</span> Biblioteca</div>
+          <div class="t"><span class="ic">◈</span> Tienda</div>
+          <div class="t"><span class="ic">▤</span> Emuladores</div>
+          <div class="t"><span class="ic">⤢</span> Streaming</div>
+          <div class="t"><span class="ic">◉</span> Comunidad</div>
+          <div class="t"><span class="ic">☁</span> Nube</div>
+          <div class="t"><span class="ic">⚙</span> Ajustes</div>
+        </div>
+        <div class="app-content">
+          <div class="app-tb">
+            <h4>Mi biblioteca</h4>
+            <span class="search">Buscar…</span>
+            <span class="add">＋ Carpeta</span>
+          </div>
+          <div class="covers">
+            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#e8663a,#7a2f16)"><span>Crash Bandicoot</span></div><div class="meta"><span class="plat">PS1</span><span class="play">▶</span></div></div>
+            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#c0392b,#4a1410)"><span>God of War III</span></div><div class="meta"><span class="plat">PS3</span><span class="play">▶</span></div></div>
+            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#2e86de,#123a63)"><span>Gran Turismo 4</span></div><div class="meta"><span class="plat">PS2</span><span class="play">▶</span></div></div>
+            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#27ae60,#134a2b)"><span>Super Mario 64</span></div><div class="meta"><span class="plat">N64</span><span class="play">▶</span></div></div>
+            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#8e44ad,#3a1a4d)"><span>Zelda: Twilight</span></div><div class="meta"><span class="plat">GC</span><span class="play">▶</span></div></div>
+            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#16a085,#0a4238)"><span>Halo 3</span></div><div class="meta"><span class="plat">X360</span><span class="play">▶</span></div></div>
+            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#d63d6b,#5a172f)"><span>Mario Kart 8</span></div><div class="meta"><span class="plat">Wii U</span><span class="play">▶</span></div></div>
+            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#f39c12,#7a4b06)"><span>Metroid Prime</span></div><div class="meta"><span class="plat">GC</span><span class="play">▶</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CÓMO FUNCIONA ================= -->
+<section id="como" class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">En 3 pasos</span>
+      <h2>De la carpeta de juegos a jugar, sin vueltas.</h2>
+      <p>No hace falta saber de emuladores ni tocar configuraciones. Vos elegís la carpeta; la app hace el resto.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="num">01</span>
+        <h3>Elegí tu carpeta</h3>
+        <p>Instalás Multiverse Gamer y le mostrás dónde tenés tus juegos. Una sola vez.</p>
+      </div>
+      <div class="step reveal">
+        <span class="num">02</span>
+        <h3>Arma tu biblioteca</h3>
+        <p>Escanea todo, detecta la consola de cada juego, junta los archivos que van juntos (como <b>.cue + .bin</b>) y suma las carátulas.</p>
+      </div>
+      <div class="step reveal">
+        <span class="num">03</span>
+        <h3>Tocá y jugá</h3>
+        <p>Un clic abre el juego en el emulador correcto, con tus ajustes. Sin comandos, sin rutas, sin líos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Todo incluido</span>
+      <h2>Un centro de mando para todos tus juegos.</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat span2 reveal">
+        <div class="ficon">🎮</div>
+        <h3>Un clic para jugar</h3>
+        <p>La app arma sola el comando (emulador + juego + ajustes) y lo lanza. Vos solo elegís qué querés jugar.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon">🔎</div>
+        <h3>Detecta tus emuladores</h3>
+        <p>Encuentra los que ya tenés instalados y asigna cada consola al que corresponde.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon">🗂️</div>
+        <h3>Biblioteca ordenada</h3>
+        <p>Sin duplicados, con carátulas, favoritos y colecciones.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon">🖥️</div>
+        <h3>Ajustes por juego</h3>
+        <p>Resolución, pantalla completa, límite de FPS y filtros, guardados para cada título.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon">🌐</div>
+        <h3>Online de las consolas</h3>
+        <p>Redes comunitarias (RPCN y más) con activación automática para volver a jugar en línea.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ficon">👥</div>
+        <h3>Comunidad y amigos</h3>
+        <p>Perfiles, chat y hasta co-op entre casas por internet.</p>
+      </div>
+      <div class="feat span2 reveal">
+        <div class="ficon">☁️</div>
+        <h3>Tu cuenta en la nube</h3>
+        <p>Saves en la nube, logros (RetroAchievements) y tu sesión te siguen. Nada atado a una sola PC.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONSOLAS ================= -->
+<section id="consolas" class="consoles">
+  <div class="wrap">
+    <div class="lbl reveal"><span class="eyebrow">Compatible con lo que jugás</span></div>
+    <div class="chips reveal">
+      <span class="chip big">NES</span>
+      <span class="chip big">SNES</span>
+      <span class="chip big">Nintendo 64</span>
+      <span class="chip big">GameCube</span>
+      <span class="chip big">Wii</span>
+      <span class="chip">Wii U</span>
+      <span class="chip">Switch</span>
+      <span class="chip">Game Boy Advance</span>
+      <span class="chip big">PlayStation</span>
+      <span class="chip big">PlayStation 2</span>
+      <span class="chip big">PlayStation 3</span>
+      <span class="chip">PlayStation 4</span>
+      <span class="chip">PSP</span>
+      <span class="chip big">Xbox 360</span>
+      <span class="chip">Dreamcast</span>
+      <span class="chip">Mega Drive</span>
+      <span class="chip">Arcade</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMUNIDAD / RESEÑAS ================= -->
+<section id="comunidad" class="sec">
+  <div class="wrap showcase">
+    <div class="txt reveal">
+      <span class="eyebrow">No jugás solo/a</span>
+      <h2>Una comunidad adentro de la app.</h2>
+      <p>Sumá amigos, chateá, mirá quién está en línea y dejá tu reseña. Los mejores comentarios se destacan para toda la comunidad.</p>
+      <ul>
+        <li><span class="ck">✓</span> Reseñas con estrellas: contá qué te parece y leé la de otros jugadores.</li>
+        <li><span class="ck">✓</span> Amigos, chat y perfiles públicos.</li>
+        <li><span class="ck">✓</span> Ranking de jugadores y estado "en línea".</li>
+      </ul>
+    </div>
+
+    <!-- MOCKUP: Reseñas -->
+    <div class="panel reveal" role="img" aria-label="Pantalla de reseñas de la comunidad">
+      <div class="p-head">
+        <span style="color:var(--gold)">★</span>
+        <h4>Reseñas de la comunidad</h4>
+      </div>
+      <div class="p-body">
+        <div class="mine">
+          <div class="row">
+            <span class="picker">★★★★★</span>
+            <span class="save">Guardar reseña</span>
+          </div>
+          <div class="ta">Escribí tu reseña (qué te gusta, qué mejorarías)…</div>
+        </div>
+        <div class="rev">
+          <div class="av" style="background:linear-gradient(140deg,#7c5cff,#5b3ee0)">R</div>
+          <div class="rc">
+            <div class="top"><span class="nm">RetroRodri</span> <span class="stars">★★★★★</span> <span class="cty">Argentina</span></div>
+            <div class="tx">Tengo todas mis consolas en un solo lugar. Abrir un juego es un clic. <span class="tag-example">ejemplo</span></div>
+          </div>
+        </div>
+        <div class="rev">
+          <div class="av" style="background:linear-gradient(140deg,#00d4a0,#0a7d63)">L</div>
+          <div class="rc">
+            <div class="top"><span class="nm">LauGamer</span> <span class="stars">★★★★<span class="off">★</span></span> <span class="cty">Uruguay</span></div>
+            <div class="tx">Lo mejor es que no tuve que configurar ningún emulador a mano. <span class="tag-example">ejemplo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRECIO ================= -->
+<section id="precio" class="sec" style="padding-top:0">
+  <div class="wrap pricing">
+    <div class="price-card reveal">
+      <div class="pc-in">
+        <span class="price-badge">● 7 días gratis</span>
+        <div class="price-amt">
+          <span class="cur">ARS $</span>
+          <span class="val">5.900</span>
+          <span class="per">/ mes</span>
+        </div>
+        <div class="price-year">o <b>$59.000 / año</b> <span class="save-pill">2 meses gratis</span></div>
+        <p class="price-sub">Probalo 7 días gratis. Después, un precio simple por mes o por año. Cancelás cuando quieras.</p>
+        <ul class="price-list">
+          <li><span class="ck">✓</span> Acceso completo a todas las funciones</li>
+          <li><span class="ck">✓</span> +15 consolas y lanzamiento en un clic</li>
+          <li><span class="ck">✓</span> Comunidad, nube, logros y online</li>
+          <li><span class="ck">✓</span> Actualizaciones nuevas todo el tiempo</li>
+        </ul>
+        <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest">Empezar gratis</a>
+        <p class="price-secure">Pago seguro con Mercado Pago</p>
+      </div>
+    </div>
+    <div class="price-aside reveal">
+      <span class="eyebrow">Precio</span>
+      <h2>Simple, mensual y sin sorpresas.</h2>
+      <p>Una sola suscripción habilita todo. Sin niveles confusos ni funciones bloqueadas.</p>
+      <div class="mini">
+        <div><span class="ic">✓</span> Sin permanencia: cancelás cuando quieras.</div>
+        <div><span class="ic">✓</span> Empezás con 7 días gratis.</div>
+        <div><span class="ic">✓</span> Pagás por mes, o por año y te ahorrás 2 meses.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final">
+  <div class="wrap in">
+    <h2>Tu colección merece un mejor hogar.</h2>
+    <p>Descargá Multiverse Gamer y empezá a jugar en minutos.</p>
+    <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest" style="font-size:1.05rem;padding:1em 1.9em">▶ Descargar y probar gratis</a>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top" style="font-size:1.05rem">
+          <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4.5v15l13-7.5-13-7.5Z" fill="currentColor"/></svg></span>
+          Multiverse Gamer
+        </a>
+        <p class="legal">Multiverse Gamer es un organizador y lanzador de juegos. <b>No incluye ni distribuye juegos ni BIOS.</b> Usá únicamente juegos de tu propiedad, homebrew o de dominio público. Las marcas y consolas mencionadas pertenecen a sus respectivos dueños.</p>
+      </div>
+      <div>
+        <h5>Producto</h5>
+        <a href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest">Descargar</a>
+        <a href="#como">Cómo funciona</a>
+        <a href="#precio">Precio</a>
+      </div>
+      <div>
+        <h5>Soporte</h5>
+        <a href="mailto:multiversogamer02@gmail.com">multiversogamer02@gmail.com</a>
+        <a href="#comunidad">Comunidad</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Multiverse Gamer. Hecho con ♥ para los que juegan de todo.</span>
+      <span>Windows</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Aparición suave de secciones al entrar en pantalla (desde un estado ya legible).
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+      els.forEach(function(e){e.classList.add('in')});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+</body>
+</html>
