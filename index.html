@@ -300,6 +300,82 @@
     .foot{grid-template-columns:1fr}
     .price-amt .val{font-size:2.5rem}
   }
+
+  /* ---------- CAPTURAS REALES ---------- */
+  .shot{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);background:var(--ground-2);box-shadow:var(--shadow);cursor:zoom-in}
+  .hero .shot-frame{transform:perspective(1600px) rotateY(-8deg) rotateX(3deg);transform-origin:left center}
+  .shot-frame{position:relative}
+  .shot-frame .badge-real{position:absolute;left:14px;bottom:14px;font-family:'Chakra Petch',sans-serif;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+    background:rgba(11,13,22,.82);border:1px solid var(--line);color:var(--muted);padding:4px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+
+  .tour-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .tour-tabs button{font:inherit;font-family:'Sora',sans-serif;font-weight:600;font-size:.88rem;color:var(--muted);background:var(--surface);
+    border:1px solid var(--line);border-radius:999px;padding:.55em 1.1em;cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+  .tour-tabs button:hover{color:var(--text);border-color:var(--violet)}
+  .tour-tabs button[aria-selected="true"]{color:#fff;background:rgba(124,92,255,.18);border-color:var(--violet)}
+  .tour{display:grid;grid-template-columns:1.55fr .75fr;gap:30px;align-items:center}
+  .tour-txt h3{font-size:1.4rem;font-weight:700}
+  .tour-txt p{color:var(--muted);margin-top:10px}
+  .tour-txt ul{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:9px}
+  .tour-txt li{display:flex;gap:10px;font-size:.95rem}
+  .tour-txt li .ck{color:var(--teal);flex:none}
+
+  /* ---------- NUESTROS JUEGOS ---------- */
+  .games{background:linear-gradient(180deg,var(--ground) 0%,#120d0a 18%,#120d0a 82%,var(--ground) 100%)}
+  .games .eyebrow{color:#f2b23c}
+  .game-hero{position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(242,178,60,.35);box-shadow:0 30px 80px -30px rgba(242,140,40,.35)}
+  .game-hero img{display:block;width:100%;height:auto;aspect-ratio:1440/786;object-fit:cover}
+  .game-hero .over{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:34px;
+    background:linear-gradient(0deg,rgba(8,6,4,.94) 0%,rgba(8,6,4,.55) 45%,transparent 75%)}
+  .game-hero .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .gtag{font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;
+    border:1px solid rgba(242,178,60,.45);color:#f6c766;background:rgba(242,178,60,.1)}
+  .game-hero h3{font-family:'Chakra Petch',sans-serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:700;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+  .game-hero h3 small{display:block;font-size:.38em;letter-spacing:.3em;color:#f2b23c;margin-top:8px}
+  .game-hero p{color:#d6cfc4;max-width:60ch;margin-top:12px;font-size:1.04rem}
+  .dl{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+  .dl-card{display:flex;gap:16px;align-items:center;padding:20px;border-radius:16px;background:var(--surface);border:1px solid var(--line);
+    transition:transform .15s ease,border-color .15s ease}
+  .dl-card:hover{transform:translateY(-2px);border-color:#f2b23c}
+  .dl-card .ico{width:52px;height:52px;flex:none;border-radius:13px;display:grid;place-items:center;background:rgba(242,178,60,.14);border:1px solid rgba(242,178,60,.35)}
+  .dl-card .ico svg{width:26px;height:26px;color:#f6c766}
+  .dl-card b{display:block;font-family:'Sora',sans-serif;font-size:1.06rem}
+  .dl-card span{display:block;color:var(--muted);font-size:.88rem;margin-top:2px}
+  .dl-card .go{margin-left:auto;font-family:'Sora',sans-serif;font-weight:700;font-size:.9rem;color:#1a1206;background:#f2b23c;border-radius:10px;padding:.65em 1.1em;white-space:nowrap}
+  .gfeat{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+  .gfeat div{background:var(--surface);border:1px solid var(--line-soft);border-radius:14px;padding:18px}
+  .gfeat h4{font-family:'Sora',sans-serif;font-size:.98rem;margin:0 0 6px}
+  .gfeat p{color:var(--muted);font-size:.88rem}
+  .ggal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+  .ggal img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--line);cursor:zoom-in;display:block}
+  .phones{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+  .phone{border-radius:26px;padding:9px;background:#05060a;border:1px solid #2b2f3e;box-shadow:var(--shadow)}
+  .phone img{display:block;width:100%;height:auto;border-radius:18px;cursor:zoom-in}
+  .phone figcaption{color:var(--muted);font-size:.84rem;text-align:center;margin-top:8px}
+  .sub-h{display:flex;align-items:baseline;gap:12px;margin-top:44px}
+  .sub-h h4{font-family:'Sora',sans-serif;font-size:1.2rem;margin:0}
+  .sub-h span{color:var(--muted-2);font-size:.9rem}
+  .soon{margin-top:40px;padding:22px;border-radius:16px;border:1px dashed var(--line);color:var(--muted);text-align:center}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(5,6,10,.92);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+  .lb.on{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+
+  @media (max-width:940px){
+    .tour{grid-template-columns:1fr}
+    .hero .shot-frame{transform:none}
+    .gfeat{grid-template-columns:1fr 1fr}
+    .ggal{grid-template-columns:1fr 1fr}
+    .dl{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .phones{grid-template-columns:1fr}
+    .game-hero .over{position:static;background:#0e0b08;padding:22px}
+    .gfeat{grid-template-columns:1fr}
+    .dl-card{flex-wrap:wrap}
+    .dl-card .go{margin-left:0;width:100%;text-align:center}
+  }
 </style>
 </head>
 <body>
@@ -315,12 +391,12 @@
     </a>
     <nav class="nav-links">
       <a href="#como">Cómo funciona</a>
-      <a href="#consolas">Consolas</a>
-      <a href="#comunidad">Comunidad</a>
+      <a href="#app">La app por dentro</a>
+      <a href="#juegos">Nuestros juegos</a>
       <a href="#precio">Precio</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest">Descargar gratis</a>
+      <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest/download/MultiverseGamer-Setup.exe">Descargar gratis</a>
     </div>
   </div>
 </header>
@@ -332,10 +408,10 @@
     <div class="hero-copy">
       <span class="eyebrow">Launcher + emulación · para Windows</span>
       <h1>Toda tu vida gamer retro, en <span class="hl">una sola app</span>.</h1>
-      <p class="hero-sub">Organizá tus juegos de todas las consolas y jugalos con un clic. Multiverse Gamer detecta tus emuladores, arma tu biblioteca y abre cada juego donde corresponde — sin configurar nada.</p>
+      <p class="hero-sub">Organizá tus juegos de todas las consolas y jugalos con un clic. Multiverse Gamer detecta tus emuladores, arma tu biblioteca y abre cada juego donde corresponde, sin configurar nada.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest">▶ Probar gratis 7 días</a>
-        <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
+        <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest/download/MultiverseGamer-Setup.exe">▶ Probar gratis 7 días</a>
+        <a class="btn btn-ghost" href="#app">Ver la app por dentro</a>
       </div>
       <div class="hero-note"><span class="dot"></span> 7 días de prueba gratis · cancelás cuando quieras</div>
       <div class="trust">
@@ -345,41 +421,10 @@
       </div>
     </div>
 
-    <!-- MOCKUP: Biblioteca -->
-    <div class="app-window" role="img" aria-label="Pantalla de la biblioteca de Multiverse Gamer con juegos de varias consolas">
-      <div class="app-titlebar">
-        <span class="tdots"><i></i><i></i><i></i></span>
-        <span class="tb-title">Multiverse Gamer</span>
-      </div>
-      <div class="app-body">
-        <div class="app-tabs">
-          <div class="t on"><span class="ic">▦</span> Biblioteca</div>
-          <div class="t"><span class="ic">◈</span> Tienda</div>
-          <div class="t"><span class="ic">▤</span> Emuladores</div>
-          <div class="t"><span class="ic">⤢</span> Streaming</div>
-          <div class="t"><span class="ic">◉</span> Comunidad</div>
-          <div class="t"><span class="ic">☁</span> Nube</div>
-          <div class="t"><span class="ic">⚙</span> Ajustes</div>
-        </div>
-        <div class="app-content">
-          <div class="app-tb">
-            <h4>Mi biblioteca</h4>
-            <span class="search">Buscar…</span>
-            <span class="add">＋ Carpeta</span>
-          </div>
-          <div class="covers">
-            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#e8663a,#7a2f16)"><span>Crash Bandicoot</span></div><div class="meta"><span class="plat">PS1</span><span class="play">▶</span></div></div>
-            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#c0392b,#4a1410)"><span>God of War III</span></div><div class="meta"><span class="plat">PS3</span><span class="play">▶</span></div></div>
-            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#2e86de,#123a63)"><span>Gran Turismo 4</span></div><div class="meta"><span class="plat">PS2</span><span class="play">▶</span></div></div>
-            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#27ae60,#134a2b)"><span>Super Mario 64</span></div><div class="meta"><span class="plat">N64</span><span class="play">▶</span></div></div>
-            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#8e44ad,#3a1a4d)"><span>Zelda: Twilight</span></div><div class="meta"><span class="plat">GC</span><span class="play">▶</span></div></div>
-            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#16a085,#0a4238)"><span>Halo 3</span></div><div class="meta"><span class="plat">X360</span><span class="play">▶</span></div></div>
-            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#d63d6b,#5a172f)"><span>Mario Kart 8</span></div><div class="meta"><span class="plat">Wii U</span><span class="play">▶</span></div></div>
-            <div class="cover"><div class="art" style="background:linear-gradient(150deg,#f39c12,#7a4b06)"><span>Metroid Prime</span></div><div class="meta"><span class="plat">GC</span><span class="play">▶</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <figure class="shot-frame" style="margin:0">
+      <img class="shot" src="img/mg-biblioteca.webp" width="1366" height="720" alt="La biblioteca de Multiverse Gamer con juegos de NES, PlayStation, Wii U, Xbox 360 y PC" loading="eager">
+      <figcaption class="badge-real">Captura real de la app</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -411,6 +456,26 @@
   </div>
 </section>
 
+<!-- ================= LA APP POR DENTRO (capturas reales) ================= -->
+<section id="app" class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Capturas reales</span>
+      <h2>Así se ve Multiverse Gamer por dentro.</h2>
+      <p>Nada de maquetas: estas son pantallas de la app tal como la vas a usar.</p>
+    </div>
+    <div class="tour-tabs reveal" role="tablist" id="tourTabs"></div>
+    <div class="tour reveal">
+      <img class="shot" id="tourImg" src="" alt="" width="1366" height="720">
+      <div class="tour-txt">
+        <h3 id="tourTitle"></h3>
+        <p id="tourText"></p>
+        <ul id="tourList"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= FEATURES ================= -->
 <section class="sec" style="padding-top:0">
   <div class="wrap">
@@ -432,12 +497,12 @@
       <div class="feat reveal">
         <div class="ficon">🗂️</div>
         <h3>Biblioteca ordenada</h3>
-        <p>Sin duplicados, con carátulas, favoritos y colecciones.</p>
+        <p>Sin duplicados, con carátulas, favoritos, colecciones y tiempo jugado.</p>
       </div>
       <div class="feat reveal">
-        <div class="ficon">🖥️</div>
-        <h3>Ajustes por juego</h3>
-        <p>Resolución, pantalla completa, límite de FPS y filtros, guardados para cada título.</p>
+        <div class="ficon">📺</div>
+        <h3>Modo TV</h3>
+        <p>Una vista grande para jugar desde el sillón con el joystick.</p>
       </div>
       <div class="feat reveal">
         <div class="ficon">🌐</div>
@@ -447,12 +512,12 @@
       <div class="feat reveal">
         <div class="ficon">👥</div>
         <h3>Comunidad y amigos</h3>
-        <p>Perfiles, chat y hasta co-op entre casas por internet.</p>
+        <p>Perfiles, chat, reseñas y hasta co-op entre casas por internet.</p>
       </div>
       <div class="feat span2 reveal">
         <div class="ficon">☁️</div>
         <h3>Tu cuenta en la nube</h3>
-        <p>Saves en la nube, logros (RetroAchievements) y tu sesión te siguen. Nada atado a una sola PC.</p>
+        <p>Partidas guardadas en la nube, logros (RetroAchievements) y tu sesión te siguen. Nada atado a una sola PC.</p>
       </div>
     </div>
   </div>
@@ -480,59 +545,77 @@
       <span class="chip">Dreamcast</span>
       <span class="chip">Mega Drive</span>
       <span class="chip">Arcade</span>
+      <span class="chip">Juegos de PC</span>
     </div>
   </div>
 </section>
 
-<!-- ================= COMUNIDAD / RESEÑAS ================= -->
-<section id="comunidad" class="sec">
-  <div class="wrap showcase">
-    <div class="txt reveal">
-      <span class="eyebrow">No jugás solo/a</span>
-      <h2>Una comunidad adentro de la app.</h2>
-      <p>Sumá amigos, chateá, mirá quién está en línea y dejá tu reseña. Los mejores comentarios se destacan para toda la comunidad.</p>
-      <ul>
-        <li><span class="ck">✓</span> Reseñas con estrellas: contá qué te parece y leé la de otros jugadores.</li>
-        <li><span class="ck">✓</span> Amigos, chat y perfiles públicos.</li>
-        <li><span class="ck">✓</span> Ranking de jugadores y estado "en línea".</li>
-      </ul>
+<!-- ================= NUESTROS JUEGOS ================= -->
+<section id="juegos" class="sec games">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">⭐ Nuestros juegos</span>
+      <h2>Juegos hechos por nosotros.</h2>
+      <p>Además del launcher, creamos nuestros propios juegos. Están en la pestaña <b>⭐ Nuestros juegos</b> de la app y algunos también en el celular.</p>
     </div>
 
-    <!-- MOCKUP: Reseñas -->
-    <div class="panel reveal" role="img" aria-label="Pantalla de reseñas de la comunidad">
-      <div class="p-head">
-        <span style="color:var(--gold)">★</span>
-        <h4>Reseñas de la comunidad</h4>
-      </div>
-      <div class="p-body">
-        <div class="mine">
-          <div class="row">
-            <span class="picker">★★★★★</span>
-            <span class="save">Guardar reseña</span>
+    <!-- ===== Total Crisis ===== -->
+    <article id="total-crisis" class="reveal">
+      <div class="game-hero">
+        <img src="img/tc-europa.webp" width="1440" height="786" alt="Total Crisis: mapa de Europa con ejércitos de Francia, Alemania, Reino Unido y España" loading="lazy">
+        <div class="over">
+          <div class="tags">
+            <span class="gtag">Estrategia en tiempo real</span>
+            <span class="gtag">PC + Android</span>
+            <span class="gtag">Acceso anticipado</span>
           </div>
-          <div class="ta">Escribí tu reseña (qué te gusta, qué mejorarías)…</div>
-        </div>
-        <div class="rev">
-          <div class="av" style="background:linear-gradient(140deg,#7c5cff,#5b3ee0)">R</div>
-          <div class="rc">
-            <div class="top"><span class="nm">RetroRodri</span> <span class="stars">★★★★★</span> <span class="cty">Argentina</span></div>
-            <div class="tx">Tengo todas mis consolas en un solo lugar. Abrir un juego es un clic. <span class="tag-example">ejemplo</span></div>
-          </div>
-        </div>
-        <div class="rev">
-          <div class="av" style="background:linear-gradient(140deg,#00d4a0,#0a7d63)">L</div>
-          <div class="rc">
-            <div class="top"><span class="nm">LauGamer</span> <span class="stars">★★★★<span class="off">★</span></span> <span class="cty">Uruguay</span></div>
-            <div class="tx">Lo mejor es que no tuve que configurar ningún emulador a mano. <span class="tag-example">ejemplo</span></div>
-          </div>
+          <h3>Total Crisis<small>Global Conflict</small></h3>
+          <p>Año 2030. Elegí cualquier país del mundo y llevalo a la cima: construí tu economía, investigá tecnología, negociá alianzas y mové tus ejércitos por tierra, mar y aire en un mapa del mundo entero.</p>
         </div>
       </div>
-    </div>
+
+      <div class="dl">
+        <a class="dl-card" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest/download/MultiverseGamer-Setup.exe">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+          <span><b>Para PC (Windows)</b><span>Incluido en Multiverse Gamer: se instala y se juega desde ⭐ Nuestros juegos.</span></span>
+          <span class="go">Descargar</span>
+        </a>
+        <a class="dl-card" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/download/total-crisis-android/TotalCrisis.apk">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span>
+          <span><b>Para celular (Android)</b><span>Bajá el APK, abrilo y permití «instalar apps desconocidas».</span></span>
+          <span class="go">Descargar APK</span>
+        </a>
+      </div>
+
+      <div class="gfeat">
+        <div><h4>🌍 Todo el mundo</h4><p>198 países jugables en un mapa real con 1138 provincias, cada una con sus recursos.</p></div>
+        <div><h4>⚔️ Guerra moderna</h4><p>48 tipos de unidad: tanques, aviones, flotas, misiles y fuerzas especiales, en tiempo real.</p></div>
+        <div><h4>🤝 Diplomacia y economía</h4><p>Alianzas, la ONU, espionaje, comercio y 82 tecnologías para investigar.</p></div>
+        <div><h4>🎮 Online</h4><p>Multijugador, mods, editor de escenarios y 7 idiomas.</p></div>
+      </div>
+
+      <div class="sub-h"><h4>En la PC</h4><span>capturas del juego</span></div>
+      <div class="ggal">
+        <img src="img/tc-batalla.webp" width="1440" height="786" alt="Batalla en la frontera entre Francia, Bélgica y Luxemburgo" loading="lazy">
+        <img src="img/tc-flota.webp" width="1440" height="786" alt="Flota naval francesa con portaaviones" loading="lazy">
+        <img src="img/tc-capital.webp" width="1440" height="786" alt="Capital con edificios y defensas" loading="lazy">
+        <img src="img/tc-tropas.webp" width="1440" height="786" alt="Grupo de unidades seleccionadas con sus órdenes" loading="lazy">
+      </div>
+
+      <div class="sub-h"><h4>En el celular</h4><span>interfaz pensada para el dedo</span></div>
+      <div class="phones">
+        <figure class="phone" style="margin:0"><img src="img/tc-movil-menu.webp" width="1200" height="512" alt="Menú principal de Total Crisis en el celular" loading="lazy"><figcaption>Menú principal</figcaption></figure>
+        <figure class="phone" style="margin:0"><img src="img/tc-movil-tropas.webp" width="1200" height="536" alt="Órdenes rápidas a las tropas en el celular" loading="lazy"><figcaption>Órdenes rápidas a tus tropas</figcaption></figure>
+        <figure class="phone" style="margin:0"><img src="img/tc-movil-provincia.webp" width="1200" height="536" alt="Tarjeta de provincia con Construir y Reclutar en el celular" loading="lazy"><figcaption>Tocá una provincia: construir y reclutar</figcaption></figure>
+      </div>
+    </article>
+
+    <div class="soon reveal">Próximamente, más juegos nuestros en esta sección.</div>
   </div>
 </section>
 
 <!-- ================= PRECIO ================= -->
-<section id="precio" class="sec" style="padding-top:0">
+<section id="precio" class="sec">
   <div class="wrap pricing">
     <div class="price-card reveal">
       <div class="pc-in">
@@ -550,7 +633,7 @@
           <li><span class="ck">✓</span> Comunidad, nube, logros y online</li>
           <li><span class="ck">✓</span> Actualizaciones nuevas todo el tiempo</li>
         </ul>
-        <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest">Empezar gratis</a>
+        <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest/download/MultiverseGamer-Setup.exe">Empezar gratis</a>
         <p class="price-secure">Pago seguro con Mercado Pago</p>
       </div>
     </div>
@@ -572,7 +655,7 @@
   <div class="wrap in">
     <h2>Tu colección merece un mejor hogar.</h2>
     <p>Descargá Multiverse Gamer y empezá a jugar en minutos.</p>
-    <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest" style="font-size:1.05rem;padding:1em 1.9em">▶ Descargar y probar gratis</a>
+    <a class="btn btn-primary" href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest/download/MultiverseGamer-Setup.exe" style="font-size:1.05rem;padding:1em 1.9em">▶ Descargar y probar gratis</a>
   </div>
 </section>
 </main>
@@ -590,24 +673,62 @@
       </div>
       <div>
         <h5>Producto</h5>
-        <a href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest">Descargar</a>
-        <a href="#como">Cómo funciona</a>
+        <a href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases/latest/download/MultiverseGamer-Setup.exe">Descargar</a>
+        <a href="#app">La app por dentro</a>
+        <a href="#juegos">Nuestros juegos</a>
         <a href="#precio">Precio</a>
       </div>
       <div>
         <h5>Soporte</h5>
         <a href="mailto:multiversogamer02@gmail.com">multiversogamer02@gmail.com</a>
-        <a href="#comunidad">Comunidad</a>
+        <a href="https://github.com/multiversogamer02-bit/multiverse-gamer/releases">Todas las versiones</a>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Multiverse Gamer. Hecho con ♥ para los que juegan de todo.</span>
-      <span>Windows</span>
+      <span>Windows · Android (Total Crisis)</span>
     </div>
   </div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-label="Imagen ampliada"><img alt=""></div>
+
 <script>
+  // Recorrido por la app: una pestaña por pantalla (capturas reales en img/)
+  (function(){
+    var PANTALLAS = [{"tab": "Biblioteca", "img": "img/mg-biblioteca.webp", "alt": "Biblioteca de Multiverse Gamer en vista de grilla con carátulas", "titulo": "Tu biblioteca, con carátulas", "texto": "Todos tus juegos de todas las consolas juntos, con su carátula, en lista o en grilla.", "puntos": ["Buscador y filtros por consola y colección", "Favoritos y tiempo jugado de cada juego", "Un clic en el juego y arranca en su emulador"]}, {"tab": "⭐ Nuestros juegos", "img": "img/mg-nuestros.webp", "alt": "Pestaña Nuestros juegos con Total Crisis", "titulo": "Nuestros juegos, incluidos", "texto": "Los juegos que hacemos nosotros vienen incluidos en tu suscripción. Se instalan, se actualizan y se juegan desde acá.", "puntos": ["Total Crisis: Global Conflict en acceso anticipado", "Actualizaciones automáticas", "Sin pagar nada extra"]}, {"tab": "Tienda", "img": "img/mg-tienda.webp", "alt": "Tienda de juegos gratuitos de Multiverse Gamer", "titulo": "Tienda de juegos libres", "texto": "Cientos de juegos de distribución libre (propios, homebrew o freeware) que se bajan con un clic y quedan listos en tu biblioteca.", "puntos": ["Más de 230 juegos", "Filtrá por consola", "Se instalan solos, sin configurar nada"]}, {"tab": "Emuladores", "img": "img/mg-emuladores.webp", "alt": "Pestaña Emuladores con los emuladores detectados", "titulo": "Emuladores, resueltos", "texto": "La app detecta los emuladores que tenés, instala los que faltan y asigna cada consola al que corresponde.", "puntos": ["Analizar mi PC y ajustes recomendados", "Configurar mandos y probar el joystick", "Asistente de BIOS y juego online"]}, {"tab": "Modo TV", "img": "img/mg-tv.webp", "alt": "Modo TV de Multiverse Gamer con carátulas grandes", "titulo": "Modo TV para el sillón", "texto": "Una vista a pantalla completa, con carátulas grandes, para elegir y jugar con el joystick desde lejos.", "puntos": ["Se maneja con flechas o joystick", "A / Enter para jugar, B / Esc para salir", "Ideal para conectar la PC a la tele"]}];
+    var tabs = document.getElementById('tourTabs');
+    var img = document.getElementById('tourImg');
+    function mostrar(i){
+      var p = PANTALLAS[i];
+      img.src = p.img; img.alt = p.alt;
+      document.getElementById('tourTitle').textContent = p.titulo;
+      document.getElementById('tourText').textContent = p.texto;
+      var ul = document.getElementById('tourList'); ul.innerHTML = '';
+      p.puntos.forEach(function(t){ var li = document.createElement('li'); li.innerHTML = '<span class="ck">✓</span> '; li.appendChild(document.createTextNode(t)); ul.appendChild(li); });
+      Array.prototype.forEach.call(tabs.children, function(b, k){ b.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+    }
+    PANTALLAS.forEach(function(p, i){
+      var b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('role', 'tab'); b.textContent = p.tab;
+      b.addEventListener('click', function(){ mostrar(i); });
+      tabs.appendChild(b);
+    });
+    mostrar(0);
+  })();
+
+  // Ver las capturas en grande
+  (function(){
+    var lb = document.getElementById('lb'), big = lb.querySelector('img');
+    document.addEventListener('click', function(e){
+      var t = e.target;
+      if (t.tagName === 'IMG' && (t.classList.contains('shot') || t.closest('.ggal') || t.closest('.phone'))) {
+        big.src = t.currentSrc || t.src; big.alt = t.alt; lb.classList.add('on');
+      } else if (t.closest('#lb')) { lb.classList.remove('on'); }
+    });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') lb.classList.remove('on'); });
+  })();
+
   // Aparición suave de secciones al entrar en pantalla (desde un estado ya legible).
   (function(){
     var els = document.querySelectorAll('.reveal');
